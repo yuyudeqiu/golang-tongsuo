@@ -24,7 +24,7 @@ The image preconfigures `CGO_ENABLED`, `CGO_CFLAGS`, and `CGO_LDFLAGS` for Go bu
 Replace `YOUR_DOCKERHUB_USERNAME` with the Docker Hub namespace that publishes the image:
 
 ```dockerfile
-FROM YOUR_DOCKERHUB_USERNAME/golang-tongsuo:go1.25.14-tongsuo-1206e6b AS builder
+FROM YOUR_DOCKERHUB_USERNAME/golang-tongsuo:1.25.14-1206e6b AS builder
 
 WORKDIR /src
 
@@ -69,13 +69,13 @@ docker buildx build \
 5. Push a version tag to trigger the build and publish a Docker image with the same tag:
 
 ```bash
-git tag go1.25.14-tongsuo-1206e6b
-git push origin go1.25.14-tongsuo-1206e6b
+git tag 1.25.14-1206e6b
+git push origin 1.25.14-1206e6b
 ```
 
 Docker Hub then serves one tag with architecture-specific images. A normal `docker pull` automatically selects `linux/amd64` or `linux/arm64` for the host.
 
-Normal pushes to `main` do not publish an image. Only tags matching `go*-tongsuo-*` trigger this workflow.
+Normal pushes to `main` do not publish an image. Only tags matching `*.*.*-*`, such as `1.25.14-1206e6b`, trigger this workflow. The first part is the Go version and the suffix is the short Tongsuo commit ID.
 
 ## Updating versions
 
