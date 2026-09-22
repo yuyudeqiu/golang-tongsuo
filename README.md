@@ -66,8 +66,7 @@ docker buildx build \
 3. Add the GitHub Actions repository variable `DOCKERHUB_USERNAME`.
 4. Add the GitHub Actions repository secret `DOCKERHUB_TOKEN`.
 
-5. Push `main` to publish the moving `edge` tag.
-6. Push a version tag to publish an immutable versioned tag:
+5. Push a version tag to trigger the build and publish a Docker image with the same tag:
 
 ```bash
 git tag go1.25.14-tongsuo-1206e6b
@@ -75,6 +74,8 @@ git push origin go1.25.14-tongsuo-1206e6b
 ```
 
 Docker Hub then serves one tag with architecture-specific images. A normal `docker pull` automatically selects `linux/amd64` or `linux/arm64` for the host.
+
+Normal pushes to `main` do not publish an image. Only tags matching `go*-tongsuo-*` trigger this workflow.
 
 ## Updating versions
 

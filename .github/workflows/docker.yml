@@ -2,11 +2,8 @@ name: Build and publish Docker image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "go*-tongsuo-*"
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -111,7 +108,6 @@ jobs:
           images: ${{ env.REGISTRY_IMAGE }}
           tags: |
             type=ref,event=tag
-            type=raw,value=edge,enable={{is_default_branch}}
 
       - name: Create and push multi-platform manifest
         working-directory: ${{ runner.temp }}/digests
