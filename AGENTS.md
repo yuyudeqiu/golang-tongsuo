@@ -21,7 +21,7 @@
 - Release tags use `<full Go version>-<short Tongsuo commit ID>`.
 - The part before the hyphen must exactly match `GO_VERSION` in `Dockerfile`.
 - The part after the hyphen must be the first seven characters of the full `TONGSUO_COMMIT` in `Dockerfile`.
-- Example: `GO_VERSION=1.25.14` and `TONGSUO_COMMIT=1206e6b7c0e13a7813b03e30b136202afd494f50` produce `1.25.14-1206e6b`.
+- Example: `GO_VERSION=1.26.8` and `TONGSUO_COMMIT=1206e6b7c0e13a7813b03e30b136202afd494f50` produce `1.26.8-1206e6b`.
 - Never reuse or move an existing release tag. Create a new tag whenever Go or the Tongsuo commit changes.
 - Do not change only the checksum for an already published Go/Tongsuo combination. Investigate an unexpected archive checksum change and pin a new trusted Tongsuo commit before releasing.
 - Tags matching `*.*.*-*` trigger `.github/workflows/docker.yml`; ordinary branch pushes do not publish an image.

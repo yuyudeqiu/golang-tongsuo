@@ -8,7 +8,7 @@ A reproducible, multi-platform Go build image with a statically built Tongsuo to
 
 | Component | Version |
 | --- | --- |
-| Go base image | `golang:1.25.14-bookworm` |
+| Go base image | `golang:1.26.8-bookworm` |
 | Tongsuo commit | `1206e6b7c0e13a7813b03e30b136202afd494f50` |
 | Tongsuo archive SHA-256 | `3026cfbba8f3bcb1add69424530f533bec2ca41d5926842bd653c78745f41e17` |
 | Platforms | `linux/amd64`, `linux/arm64` |
@@ -23,14 +23,14 @@ The image preconfigures `CGO_ENABLED`, `CGO_CFLAGS`, and `CGO_LDFLAGS` for Go bu
 
 ## Image tags
 
-Release tags use the format `<full Go version>-<short Tongsuo commit ID>`. For example, `1.25.14-1206e6b` contains Go `1.25.14` and Tongsuo commit `1206e6b7c0e13a7813b03e30b136202afd494f50`.
+Release tags use the format `<full Go version>-<short Tongsuo commit ID>`. For example, `1.26.8-1206e6b` contains Go `1.26.8` and Tongsuo commit `1206e6b7c0e13a7813b03e30b136202afd494f50`.
 
 No `latest` tag is published. Use an explicit version tag so builds remain reproducible.
 
 ## Use the image
 
 ```dockerfile
-FROM yuyudeqiu/golang-tongsuo:1.25.14-1206e6b AS builder
+FROM yuyudeqiu/golang-tongsuo:1.26.8-1206e6b AS builder
 
 WORKDIR /src
 

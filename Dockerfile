@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 
-ARG GO_VERSION=1.25.14
+ARG GO_VERSION=1.26.8
 FROM golang:${GO_VERSION}-bookworm
 
 ARG TONGSUO_COMMIT=1206e6b7c0e13a7813b03e30b136202afd494f50
@@ -45,4 +45,3 @@ ENV TONGSUO_HOME=/opt/tongsuo \
     CGO_LDFLAGS="-L/opt/tongsuo/lib"
 
 WORKDIR /src
-
