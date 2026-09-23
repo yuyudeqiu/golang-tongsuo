@@ -1,6 +1,6 @@
 # Go + Tongsuo builder image
 
-[简体中文](README.zh-CN.md) | English
+[简体中文](https://github.com/yuyudeqiu/golang-tongsuo/blob/main/README.zh-CN.md) | English
 
 A reproducible, multi-platform Go build image with a statically built Tongsuo toolchain.
 

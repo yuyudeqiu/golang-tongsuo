@@ -5,6 +5,8 @@
 - `Dockerfile` is the source of truth for `GO_VERSION`, `TONGSUO_COMMIT`, and `TONGSUO_SHA256`.
 - Keep `README.md` and `README.zh-CN.md` synchronized when pinned versions, supported platforms, image usage, or user-visible behavior changes.
 - Keep the README files focused on image users. Put repository maintenance and release procedures in this file instead of expanding the README files.
+- `README.md` is also the source for the Docker Hub repository overview. Pushing a change to it on `main` triggers `.github/workflows/dockerhub-description.yml`.
+- Keep links in `README.md` usable from both GitHub and Docker Hub. Prefer absolute URLs for links to other repository files.
 
 ## Updating Go or Tongsuo
 

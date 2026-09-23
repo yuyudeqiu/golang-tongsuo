@@ -1,6 +1,6 @@
 # Go + Tongsuo 构建镜像
 
-简体中文 | [English](README.md)
+简体中文 | [English](https://github.com/yuyudeqiu/golang-tongsuo/blob/main/README.md)
 
 一个可复现、支持多平台的 Go 构建镜像，内置静态编译的铜锁（Tongsuo）工具链。
 
