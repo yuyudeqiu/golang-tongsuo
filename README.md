@@ -25,7 +25,13 @@ The image preconfigures `CGO_ENABLED`, `CGO_CFLAGS`, and `CGO_LDFLAGS` for Go bu
 
 Release tags use the format `<full Go version>-<short Tongsuo commit ID>`. For example, `1.26.10-1206e6b` contains Go `1.26.10` and Tongsuo commit `1206e6b7c0e13a7813b03e30b136202afd494f50`.
 
-Each successful release also updates `latest` to the same multi-platform image. Use an explicit version tag so builds remain reproducible; use `latest` to follow the most recently published release.
+After a successful release, floating tags are synchronized from complete multi-platform images already published in this repository:
+
+- `latest` follows the highest published stable Go version.
+- Series tags such as `1.26` and `1.27` follow the highest published patch version within that series.
+- If multiple releases contain the same Go version, the most recently published release is selected.
+
+For example, publishing Go `1.26.11` after `1.27.3` updates `1.26` while `latest` stays on `1.27.3`. Use the full release tag for reproducible builds. Floating tags update in a separate workflow after the version image is published.
 
 ## Use the image
 

@@ -33,3 +33,11 @@ When a release is requested, verify the tag against `Dockerfile`, confirm the lo
 git tag <full Go version>-<short Tongsuo commit ID>
 git push origin <full Go version>-<short Tongsuo commit ID>
 ```
+
+## Floating image tags
+
+- `.github/workflows/docker.yml` publishes only immutable full release tags.
+- After that workflow succeeds, `.github/workflows/latest.yml` runs the default-branch `.github/scripts/sync_image_tags.py` to reconcile `latest` and Go series tags from complete, active Docker Hub releases.
+- All floating tag writes must use that workflow and its shared concurrency group. Do not directly update `latest` in the build workflow. Pending syncs may be coalesced safely because each sync rescans all published versions.
+- Compare Go versions numerically; for equal Go versions, prefer the most recent `tag_last_pushed` timestamp (then the release tag as a deterministic tie breaker).
+- To repair or initialize aliases, dispatch `latest.yml` without inputs. Preview locally with `python3 .github/scripts/sync_image_tags.py yuyudeqiu/golang-tongsuo`.
