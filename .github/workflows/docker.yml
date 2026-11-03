@@ -106,7 +106,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY_IMAGE }}
-          flavor: latest=false
+          flavor: latest=true
           tags: |
             type=ref,event=tag
 
@@ -126,4 +126,6 @@ jobs:
           docker buildx imagetools create "${args[@]}"
 
       - name: Inspect published image
-        run: docker buildx imagetools inspect "${REGISTRY_IMAGE}:${{ steps.meta.outputs.version }}"
+        run: |
+          docker buildx imagetools inspect "${REGISTRY_IMAGE}:${{ steps.meta.outputs.version }}"
+          docker buildx imagetools inspect "${REGISTRY_IMAGE}:latest"

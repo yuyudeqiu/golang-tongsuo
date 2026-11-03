@@ -25,7 +25,7 @@ enable-ntls enable-export-sm4 no-shared no-dso no-async
 
 发布标签采用 `<Go 完整版本>-<Tongsuo 短 commit ID>` 格式。例如，`1.26.10-1206e6b` 表示镜像包含 Go `1.26.10` 和 Tongsuo 提交 `1206e6b7c0e13a7813b03e30b136202afd494f50`。
 
-本项目不发布 `latest` 标签。请使用明确的版本标签，以保证构建可复现。
+每次成功发布版本时，也会将 `latest` 更新为同一个多平台镜像。请使用明确的版本标签以保证构建可复现；如需跟随最近发布的版本，可使用 `latest`。
 
 ## 使用镜像
 
