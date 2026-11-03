@@ -8,7 +8,7 @@
 
 | 组件 | 版本 |
 | --- | --- |
-| Go 基础镜像 | `golang:1.26.10-bookworm` |
+| Go 基础镜像 | `golang:1.27.3-bookworm` |
 | Tongsuo 提交 | `1206e6b7c0e13a7813b03e30b136202afd494f50` |
 | Tongsuo 源码包 SHA-256 | `3026cfbba8f3bcb1add69424530f533bec2ca41d5926842bd653c78745f41e17` |
 | 支持平台 | `linux/amd64`、`linux/arm64` |
@@ -23,7 +23,7 @@ enable-ntls enable-export-sm4 no-shared no-dso no-async
 
 ## 镜像标签
 
-发布标签采用 `<Go 完整版本>-<Tongsuo 短 commit ID>` 格式。例如，`1.26.10-1206e6b` 表示镜像包含 Go `1.26.10` 和 Tongsuo 提交 `1206e6b7c0e13a7813b03e30b136202afd494f50`。
+发布标签采用 `<Go 完整版本>-<Tongsuo 短 commit ID>` 格式。例如，`1.27.3-1206e6b` 表示镜像包含 Go `1.27.3` 和 Tongsuo 提交 `1206e6b7c0e13a7813b03e30b136202afd494f50`。
 
 每次成功发布后，会根据本仓库已发布的完整多平台镜像同步浮动标签：
 
@@ -36,7 +36,7 @@ enable-ntls enable-export-sm4 no-shared no-dso no-async
 ## 使用镜像
 
 ```dockerfile
-FROM yuyudeqiu/golang-tongsuo:1.26.10-1206e6b AS builder
+FROM yuyudeqiu/golang-tongsuo:1.27.3-1206e6b AS builder
 
 WORKDIR /src
 
